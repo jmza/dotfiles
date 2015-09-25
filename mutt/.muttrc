@@ -1,0 +1,83 @@
+source ~/.config/mutt/solarized-dark-16.muttrc
+
+#### basics
+set editor = "vim -c 'set tw=74'"
+unset mark_old
+set message_cachedir = "~/.cache/mutt"
+set header_cache = ~/.cache/mutt
+set mail_check = 120
+set use_from = yes # add From header to mails
+set sig_dashes
+
+#### identity
+set realname = "Juha-Mikko Ahonen"
+set from = "jma@viidakko.fi"
+
+#### index
+set date_format = "%d.%m"
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+
+#### keys
+bind index <space> collapse-thread
+bind index <tab> sync-mailbox
+bind index G last-entry
+bind index N search-opposite
+bind index gg first-entry
+bind index p recall-message
+bind index R group-reply
+
+bind attach <return> view-mailcap
+
+bind pager G bottom
+bind pager N search-opposite
+bind pager gg top
+bind pager j next-line
+bind pager k previous-line
+bind pager n next-thread
+bind pager p previous-thread
+bind pager R group-reply
+
+bind compose p postpone-message
+
+#### pager
+set pager_context = 3
+set pager_index_lines = 10
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set menu_scroll
+set pager_stop # don't go to next message automatically
+unset markers
+
+#### compose
+set attribution = "On %d, %n wrote:"
+set forward_format = "Fwd: %s"
+set fast_reply # skip to compose when replying
+set fcc_attach
+set forward_decode
+set forward_quote # include message in forwards
+set include # include message in replies
+set reply_to # use reply to when available
+unset mime_forward
+
+#### imap
+source ~/.config/private/mutt
+set imap_idle = yes
+set imap_keepalive = 300
+set imap_list_subscribed = yes
+set imap_login = $my_work_user
+set imap_pass = $my_work_pw
+set folder = "imaps://$my_work_user@$my_work_imap/"
+set spoolfile = +INBOX
+set imap_check_subscribed
+unset imap_passive
+set record = +Sent
+set smtp_url = "smtps://$my_work_user:$my_work_pw@$my_work_smtp"
+set ssl_force_tls = yes
+
+#### status
+set status_chars = " *%A"
+#set status_format = "-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
+

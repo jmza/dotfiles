@@ -18,12 +18,23 @@ set undolevels=1000
 set undoreload=10000
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
+colorscheme eva01
 set incsearch ignorecase 
 set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_section_y=""
 let g:syntastic_php_checkers = ['php']
+let g:airline_theme="wombat"
+let g:airline_left_sep = '▌'
+let g:airline_left_alt_sep = '░'
+let g:airline_right_sep = '▐'
+let g:airline_right_alt_sep = '░'
+if ! exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 function! ResCur()
 	if line("'\"") <= line("$")
 	normal! g`"

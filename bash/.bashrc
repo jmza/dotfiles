@@ -1,40 +1,41 @@
 [ -z "$PS1" ] && return
+
+HOSTNAME=$(hostname)
+
+# History per host, ignore duplicates and job control
 export HISTCONTROL=ignoredups
-export HISTFILE=~/.bash_history.d/`hostname`
-export VIMINFOFILE=~/.vim/viminfo.`hostname`
-shopt -s checkwinsize
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-	debian_chroot=$(cat /etc/debian_chroot)
-fi
-case "$TERM" in
-*)
-	PS1="\D{%H:%M} \[\e[1;$((31 + $(hostname | cksum | cut -c1-3) % 6))m\]\h\[\e[0m\]:\w \u\$ "
-	;;
-esac
-case "$TERM" in
-xterm*|rxvt*)
-	PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-	;;
-*)
-	;;
-esac
-if [ "$TERM" != "dumb" ]; then
-	eval "`dircolors -b`"
-fi
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-export LC_ALL=fi_FI.UTF-8
-export LANG=fi_FI.UTF-8
-if [ -e "/var/www/$USER" ] ; then
-	export CDPATH=.:/var/www/$USER
-fi
-shopt -s histappend
-shopt -s cdspell
+export HISTFILE=~/.bash_history.d/$HOSTNAME
 export HISTIGNORE="&:ls:[bf]g:exit"
 export HISTSIZE=2000
+shopt -s histappend
+
+# Use fancy prompt for xterm and rxvt-unicode
+case "$TERM" in
+xterm*|rxvt*)
+	COLOR=$((31 + $(echo "$HOSTNAME" | cksum | cut -c 1-3) % 6))
+	PS1="\D{%H:%M} \[\e[1;${COLOR}m\]\h\[\e[0m\]:\w \u\$ "
+	PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+	eval "`dircolors -b`"
+	;;
+*)
+	PS1="\D{%H:%M} \h:\w \u\$ "
+	;;
+esac
+
+# Load aliases
+[ -f ~/.config/bash/aliases ] && . ~/.config/bash/aliases
+
+# Locale
+export LC_ALL=fi_FI.UTF-8
+export LANG=fi_FI.UTF-8
+
+shopt -s cdspell
+
+# Update window size meta info after each command
+shopt -s checkwinsize
+
+# Vim replated
+export EDITOR=/usr/bin/vim
+export VIMINFOFILE=~/.vim/viminfo.$HOSTNAME
+
 

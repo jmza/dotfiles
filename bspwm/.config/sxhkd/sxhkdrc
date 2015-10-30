@@ -8,9 +8,6 @@ super + alt + Escape
 super + w
 	bspc window -c
 
-super + t
-	bspc desktop -l next
-
 super + b
 	bspc desktop -B
 
@@ -87,7 +84,7 @@ super + Return
 	urxvt
 
 super + space
-	dmenu_run -h 30 -fn "Magra-12:normal" -nb "#172637" -nf "#999999" -sb "#666666" -sf "#FFFFFF" -hist /home/jma/.config/dmenu/history -p ">"
+	$HOME/bin/dmenu_run -h 30 -fn "Source Code Pro-12:normal" -nb "#000000" -nf "#999999" -sb "#666666" -sf "#FFFFFF" -ab "#FFFF00" -af "#000000" -hist $HOME/.config/dmenu/history
 
 super + p
 	mpc -p 3134 toggle

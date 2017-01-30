@@ -1,4 +1,5 @@
-source ~/.config/mutt/solarized-dark-16.muttrc
+#source ~/.config/mutt/solarized-dark-16.muttrc
+source ~/.config/mutt/colours.muttrc
 
 #### basics
 set editor = "vim -c 'set tw=74'"

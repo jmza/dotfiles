@@ -1,0 +1,95 @@
+color normal black default # default colour
+color attachment red default # attachments
+color error brightyellow red # errors printed
+color bold brightblue default # bold patterns
+color indicator brightyellow black # bar used in menus to show selection
+color markers red default # the + markers on wrapped lines
+color message cyan default # information messages
+color quoted blue default # text matching quoted messages
+color quoted1 cyan default # higher level of quoting
+color quoted2 red default # 
+color quoted3 green default # 
+color search brightyellow black # words matching search
+color signature green default # signature
+color status black default # mode line
+color tilde blue default # the ~ on blank lines of message
+color tree yellow default # tree structure drawn on message list
+color underline blue default # hightlight for body of message
+
+# hilight me
+color body brightred default "(jma|juha-mikko|ahonen)"
+# emoticons
+color body brightred default "[;:][-o][)/(|D]"
+color body brightred default "[;:][)(|D]"
+color body brightred default "[ ][*][^*]*[*][ ]?"
+color body brightred default "[ ]?[*][^*]*[*][ ]"
+color body brightred default "[*]?((N)?ACK|LOL|BTW|IMHO)[*]?"
+# gpg
+color body brightyellow red "(BAD signature)"
+color body green default "(Good signature)"
+color body brightgreen default "^gpg: Good signature .*"
+color body brightyellow default "^gpg: "
+color body brightyellow red "^gpg: BAD signature from.*"
+# links
+color body brightblue default (https?|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9=&\;+]+
+color body brightblue default "[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"
+color body brightblue default '#[0-9a-z]+'
+color body brightred default '[a-z0-9][a-z0-9_.+\-]+@[a-z0-9_.+\-]+[a-z0-9]'
+
+# index
+color index red default "~D(!~p|~p)" # deleted
+color index black default ~F # flagged
+color index brightred default ~= # duplicate messages
+color index brightblack default "~A!~N!~T!~p!~Q!~F!~D!~P" # the rest
+color index brightblue default "~A~N!~T!~p!~Q!~F!~D" # the rest, new
+color index brightblack default "~A" # all messages
+color index brightred default "~E" # expired messages
+color index black default "~N" # new messages
+color index black default "~O" # old messages
+color index brightmagenta default "~Q" # messages that have been replied to
+color index black default "~R" # read messages
+color index brightblack default "~U" # unread messages
+color index brightblack default "~U~$" # unread, unreferenced messages
+color index yellow default "~v" # messages part of a collapsed thread
+color index yellow default "~P" # messages from me
+color index cyan default "~p!~F" # messages to me
+color index cyan default "~N~p!~F" # new messages to me
+color index green default "~U~p!~F" # unread messages to me
+color index blue default "~R~p!~F" # messages to me
+color index red default "~F" # flagged messages
+color index red default "~F~p" # flagged messages to me
+color index red default "~N~F" # new flagged messages
+color index red default "~N~F~p" # new flagged messages to me
+color index red default "~U~F~p" # new flagged messages to me
+color index red default "~D" # deleted messages
+color index brightcyan default "~v~(!~N)" # collapsed thread with no unread
+color index brightblue default "~v~(~N)" # collapsed thread with some unread
+color index blue default "~N~v~(~N)" # collapsed thread with unread parent
+color index red default "~v~(~F)!~N" # collapsed thread with flagged, no unread
+color index brightblue default "~v~(~F~N)" # collapsed thread with some unread & flagged
+color index green default "~N~v~(~F~N)" # collapsed thread with unread parent & flagged
+color index green default "~N~v~(~F)" # collapsed thread with unread parent, no unread inside, but some flagged
+color index cyan default "~v~(~p)" # collapsed thread with unread parent, no unread inside, some to me directly
+color index yellow red "~v~(~D)" # thread with deleted (doesn't differentiate between all or partial)
+#color index yellow default "~(~N)" # messages in threads with some unread
+color index green default "~S" # superseded messages
+color index red default "~T" # tagged messages
+color index brightred red "~=" # duplicated messages
+
+# hilight messages mentioning me
+color index brightgreen default "~b \"(jma|juha-mikko)\" !~N !~T !~F !~p !~P"
+color index brightgreen default "~b \"(jma|juha-mikko)\" ~N !~T !~F !~p !~P"
+color index brightgreen default "~b \"(jma|juha-mikko)\" ~T !~F !~p !~P"
+color index brightgreen default "~b \"(jma|juha-mikko)\" ~F !~p !~P"
+
+# messages which are in reference to my mails
+color index magenta default "~x \"viidakko\\.fi\" !~N !~T !~F !~p !~P"
+color index magenta default "~x \"viidakko\\.fi\" ~N !~T !~F !~p !~P"
+color index magenta cyan "~x \"viidakko\\.fi\" ~T !~F !~p !~P"
+color index magenta red "~x \"viidakko\\.fi\" ~F !~p !~P"
+
+# headers
+color hdrdefault brightblack default # default
+color header magenta default "^(From)" # from
+color header magenta default "^(Subject)" # subject
+

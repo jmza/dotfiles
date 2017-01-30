@@ -1,1 +1,1 @@
-Dotfiles
+Desktop setup

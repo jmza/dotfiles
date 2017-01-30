@@ -18,8 +18,8 @@ set undolevels=1000
 set undoreload=10000
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme eva01
-set incsearch ignorecase 
+colorscheme delek
+set incsearch ignorecase
 set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_section_y=""
